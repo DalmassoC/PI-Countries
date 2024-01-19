@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background-color: #333;
+  color: white;
+}
+
+.linkWrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center; /* Vertical alignment of links */
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: lightgray;
+}

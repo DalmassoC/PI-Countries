@@ -1,0 +1,39 @@
+.container {
+  margin-top: 65px;
+  margin-bottom: 65px;
+}
+.countriesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.paginationButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.button {
+  height: 40px;
+  width: 100px;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  margin: 0 5px;
+}
+.button:hover {
+  background-color: #0056b3;
+}
+
+.currentPage {
+  margin-top: auto;
+  margin-bottom: auto;
+}

@@ -1,0 +1,49 @@
+.detailWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 100px auto;
+  max-width: 600px;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+  background-color: white;
+}
+
+.countryInfo {
+  text-align: left;
+}
+
+.error {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.detailData {
+  margin-top: 1rem;
+}
+
+.activitiesList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.activityItem {
+  margin: 0.5rem 0;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.activityName {
+  font-weight: bold;
+}
+
+.activityDuration {
+  color: #777;
+}
