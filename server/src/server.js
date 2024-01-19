@@ -6,9 +6,9 @@ const cors = require("cors");
 const server = express();
 
 server.use(morgan("dev"));
-server.use(express.json());
+server.use(express.json()); //middleware funcion de parseo
 server.use(cors());
-
+  
 server.use(router);
 
 module.exports = server;
