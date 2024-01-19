@@ -1,9 +1,11 @@
 const { Country } = require('../db')
 const { Op } = require('sequelize')
 
+//envia el pais por nombre
 const getCountryByName = async (req, res) => {
   try {
     const { name } = req.query
+    //envia el pais por nombre encontrado en la DB
     const countries = await Country.findAll({
       where: {
         name: {

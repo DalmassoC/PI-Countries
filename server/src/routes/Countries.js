@@ -1,25 +1,15 @@
-const { Router } = require("express");
+const router = require('express').Router();
 
-const controllerCountry = require("../controllers/ControllerCountry");
-
-const routerCountry = Router();
-
-/*
-    get: 
-    1- 
-        /countries
-        /countries/name?="..."
-    
-    2-  /countries/:idPais
-*/
-
-const router = require('express').Router()
+//Controllers
 const getCountries = require('../controllers/getCountries')
 const getCountryById = require('../controllers/getCountryById')
 const getCountryByName = require('../controllers/getCountryByName')
 
-router.get('/name', getCountryByName)
+// Trae todos los paises
 router.get('/', getCountries)
+// Trae todos los paises segun su id
 router.get('/:id', getCountryById)
+// Trae todos los paises segun su nombre
+router.get('/name', getCountryByName)
 
-module.exports = router
+module.exports = router;

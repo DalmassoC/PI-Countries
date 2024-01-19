@@ -1,7 +1,10 @@
 const { Country, Activity } = require('../db')
 
+
+//envia todos los paises
 const getCountries = async (req, res) => {
   try {
+    //envia todos los paises buscando en la DB
     const countries = await Country.findAll({
       include: [
         {

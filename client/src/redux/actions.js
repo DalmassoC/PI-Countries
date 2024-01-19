@@ -13,7 +13,7 @@ import axios from 'axios'
 export const getCountries = () => {
   const endPoint = 'http://localhost:3001/countries'
   return async (dispatch) => {
-    const { data } = await axios(endPoint)
+    const { data } = await axios(endPoint) //Trae todos los paises
     return dispatch({
       type: GET_COUNTRIES,
       payload: data,

@@ -1,8 +1,10 @@
 const { Country, Activity } = require('../db')
 
+//envia todos los paises 
 const getCountryById = async (req, res) => {
   try {
     const { id } = req.params
+    //envia todos los paises con el id encontrado
     const countryFound = await Country.findByPk(id.toUpperCase(), {
       include: Activity,
     })

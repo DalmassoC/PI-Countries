@@ -1,39 +1,10 @@
-const {Router} = require("express");
 const countries = require("./Countries")
 const activities = require('./Activities')
-//const fs = require ("fs");
 
+const router = require('express').Router();
 
-
-const router = Router();
-
+        //    PATH    -  otras rutas
 router.use('/countries', countries)
 router.use('/activities', activities)
-
-//const axios = require('axios')
-
-
-//Carga Por hook
-/*router.use(async (req, res, next) => {
-  const countries = await Country.count();
-  if (!countries) {
-      const apiResult = await fs.readFile()
-      const array_country = apiResult.countries.map((country) => ({
-          id: country.cca3,
-          name: country.name,
-          flag: country.flags.png,
-          region: country.region,
-          capital: country.capital[0],
-          subregion: country.subregion,
-          area: country.area,
-          population: country.population
-      }));
-      await Country.bulkCreate(array_country).then(c => console.log('Done!')).catch(err=> console.error(err))
-  }
-  next();
-});
-
-router.use(routerCountry);
-router.use(routerActivity);*/
 
 module.exports = router;

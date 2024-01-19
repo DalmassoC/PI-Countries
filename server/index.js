@@ -3,6 +3,7 @@ const server = require("./src/server");
 const { conn, Country } = require('./src/db.js');
 const PORT = 3001;
 
+// Conexion entre la db y el server
 conn
   .sync({ alter: true })
   .then(() => {

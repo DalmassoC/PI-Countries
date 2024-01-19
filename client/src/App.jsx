@@ -1,11 +1,14 @@
 import { useLocation, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Home from './views/Home/Home'
 
+//Components
+import Home from './views/Home/Home'
 import Form from './views/Form/Form'
 import Detail from './views/Detail/Detail'
 import Nav from './components/Nav/Nav'
 import Landing from './views/Landing/Landing'
+
+
 function App() {
   const location = useLocation()
 
