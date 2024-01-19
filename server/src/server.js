@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express"); //Manipula los servidores
 const router = require("./routes/index.js");
 const morgan = require("morgan"); // monitoreador de eventos http (GET,POST,PUT,DELETE)
 const cors = require("cors");

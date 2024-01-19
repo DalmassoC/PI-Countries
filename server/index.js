@@ -7,9 +7,10 @@ const PORT = 3001;
 conn
   .sync({ alter: true })
   .then(() => {
+    //Servidor a la escucha ya en la conexion con la DB
     server.listen(PORT, async () => {
-      const allCountries = await Country.findAll() //
-      if (!allCountries.length) {
+      const allCountries = await Country.count()
+      if (!allCountries) {
         const { data } = await axios('http://localhost:5000/countries')
         const countryDB = data.map((country) => {
           return {
@@ -29,6 +30,7 @@ conn
             population: country.population,
           }
         })
+        // Carga masiva de paises
         await Country.bulkCreate(countryDB)
       }
       console.log(`Server running on Port: ${PORT}`)

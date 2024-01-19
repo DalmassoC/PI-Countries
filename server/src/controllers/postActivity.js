@@ -7,6 +7,9 @@ const postActivity = async (req, res) => {
   try {
     // Atrapar la actividad por body
     const { name, difficulty, duration, season, countryName } = req.body
+    let difficulty1 =parseInt(difficulty)
+    let duration1 =parseInt(duration)
+    console.log(typeof difficulty1)
     if (!name || !difficulty || !duration || !season || !countryName) {
       return res.status(404).json({
         error: 'Please fill all the inputs and add countries to the activity',
@@ -21,18 +24,17 @@ const postActivity = async (req, res) => {
       },
     })
     // Si la actividad se encuentra en la DB no se crea
-    if (activityFound)
-    return res.status(404).json({ error: 'Activity already exists' })
-  
+    if (activityFound) return res.status(404).json({ error: 'Activity already exists' })
+   console.log("Llegue aca")
   // Caso contrario procede a cargarla en la DB
   const created = await Activity.create({
     name,
-    difficulty,
-    duration,
+    difficulty:difficulty1,
+    duration:duration1,
     season,
   })
-  
-  // Y relacionarla a un pais de la DB
+  console.log("Aca",created)
+  // Y relacionarla a un pais de la DB 
     await created.addCountries(countryName)
     const activityCreated = await Activity.findOne({
       where: { id: created.id },
