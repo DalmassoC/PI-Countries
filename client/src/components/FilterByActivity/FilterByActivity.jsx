@@ -13,7 +13,7 @@ const FilterByActivity = () => {
         id=''
         onChange={(event) => handleDispatches(dispatch, event)}
       >
-        <option value='' disabled selected hidden>
+        <option disabled selected hidden> 
           Filter by Activity
         </option>
         {activities.length &&
