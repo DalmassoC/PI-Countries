@@ -46,7 +46,7 @@ const postActivity = async (req, res) => {
   // si la actividad fue creada con exito envia el msj correspondiente
     if (activityCreated)
       return res.status(200).json({ message: 'Activity successfully created' })
-  } catch (error) {
+  } catch (error) { console.log(error.message)
     return res
       .status(500)
       .send({ error: 'There was a problem creating the Activity' })

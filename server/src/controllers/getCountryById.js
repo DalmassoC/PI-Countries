@@ -8,6 +8,7 @@ const getCountryById = async (req, res) => {
     const countryFound = await Country.findByPk(id.toUpperCase(), {
       include: Activity,
     })
+    console.log(countryFound)
     if (!countryFound)
       return res.status(404).json({ error: 'Country does not exist' })
 

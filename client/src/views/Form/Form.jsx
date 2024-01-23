@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import validate from '../../components/validation/validation'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import {getCountries} from '../../redux/actions'
 
 import axios from 'axios'
 import style from './Form.module.css'
 
 const Form = () => {
   const countries = useSelector((state) => state.allCountries)
+  const dispatch = useDispatch()
   const [errors, setErrors] = useState({})
   const [activityData, setActivityData] = useState({
     name: '',
@@ -18,17 +20,19 @@ const Form = () => {
 
   //INPUT HANDLER
   const handleInputChange = (event) => {
+    
     const { name, value } = event.target
     if (name === 'country') {
+      if(!activityData.countryName.includes(value)){ // si esta incluido que no lo seleccione
       setActivityData({
         ...activityData,
         countryName: [...activityData.countryName, value],
       })
-    } else {
+    } } else {
       setActivityData({ ...activityData, [name]: value })
       setErrors(validate({ ...activityData, [name]: value }))
     }
-  }
+    }
 
   const handleDeleteCountry = (_event, countryName) => {
     setActivityData({
@@ -56,11 +60,17 @@ const Form = () => {
       alert(error.response.data.error)
     }
   }
+  useEffect(()=>{
+    dispatch(getCountries())
+  },[]
+  )
 
   return (
+    
     <div className={style.formWrapper}>
+     {/* {<p className={style.json}>{JSON.stringify(activityData)}</p> } */}
       <h2>Thank you for contributing</h2>
-      <p className={style.subtitle}>Please add your activty</p>
+      <p className={style.subtitle}>Please add your activity</p>
       <form
         className={style.form}
         onSubmit={(event) => handleSubmit(event, activityData)}
@@ -109,6 +119,7 @@ const Form = () => {
           Where can you do this activity?
         </label>
         <select name='country' id='' onChange={handleInputChange}>
+          <option disabled selected>Select a country</option>
           {countries
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((country) => {

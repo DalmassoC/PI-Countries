@@ -16,8 +16,10 @@ const handleFilters = (order, population, continent, activity, countries) => {
     filtered = filtered.filter((pais) => pais.continent === continent)
   }
   if (activity !== '') {
+    //console.log("llegue aca")
     filtered = filtered.filter((pais) =>
-      pais.Activities.some((act) => act.name === activity)
+      pais.activities.some((act) => act.name === activity)
+     
     )
   }
   return filtered

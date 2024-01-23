@@ -1,4 +1,4 @@
-const validate = (activityData) => {
+const validate = (activityData,) => {
   const errors = {}
   if (!activityData.name) {
     errors.name = 'Must have name'

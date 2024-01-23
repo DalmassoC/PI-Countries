@@ -20,6 +20,7 @@ const Detail = () => {
     }
     fetchCountry()
   }, [id])
+  console.log(country)
   return (
     <div className={style.detailWrapper}>
       {error && <p className={style.error}>{error}</p>}
@@ -46,14 +47,14 @@ const Detail = () => {
             </h3>
             <h3 className={style.detailData}>
               Activities:
-              {country.Activities && country.Activities.length === 0 && (
+              {country.activities && country.activities.length === 0 && (
                 <p>This country does not have any activities assigned to it</p>
               )}
             </h3>
           </div>
-          {country.Activities && country.Activities.length > 0 && (
+          {country.activities && country.activities.length > 0 && (
             <ul className={style.activitiesList}>
-              {country.Activities.map((activity) => {
+              {country.activities.map((activity) => {
                 return (
                   <li className={style.activityItem} key={activity.id}>
                     <span className={style.activityName}>{activity.name}</span>
