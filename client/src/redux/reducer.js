@@ -9,7 +9,7 @@ import {
   RESET_FILTERS,
 } from './actionTypes'
 
-const initialState = {
+const initialState = { // se cre el estado inicial
   allCountries: [],
   activities: [],
   order: 'Sort by Name',

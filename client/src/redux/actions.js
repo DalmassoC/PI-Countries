@@ -1,4 +1,4 @@
-import {
+import { //Action = funcion que se comunica con una fuente externa
   GET_COUNTRIES,
   GET_COUNTRY_BY_NAME,
   ORDER_BY_NAME,
